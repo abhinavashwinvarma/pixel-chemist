@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwlqthfnkccrw"]
+
+[ext_resource type="Theme" uid="uid://vdsag21duq02" path="res://Assets/Themes/instructions_title.tres" id="1_65jgm"]
+[ext_resource type="Script" path="res://Scripts/upgrade_item.gd" id="1_if8ct"]
+[ext_resource type="Texture2D" uid="uid://dkkwspynqa7yq" path="res://Assets/Sprites/buybutton.png" id="2_4kfpv"]
+[ext_resource type="Texture2D" uid="uid://cdkkic726pdxi" path="res://Assets/Sprites/progressbarback.png" id="2_xbgj0"]
+[ext_resource type="Texture2D" uid="uid://cv6pryqgk2pb5" path="res://Assets/Sprites/progressbarfront.png" id="3_3g15f"]
+[ext_resource type="Texture2D" uid="uid://cyribxll0vv8m" path="res://Assets/Sprites/buybutton_pressed.png" id="5_h4guf"]
+[ext_resource type="Texture2D" uid="uid://ce2u2ul3uyft8" path="res://Assets/Sprites/buybutton_hover.png" id="6_emixl"]
+[ext_resource type="Texture2D" uid="uid://6slu7hvfuh8y" path="res://Assets/Sprites/buybutton_disabled.png" id="7_tsy0i"]
+
+[node name="UpgradeItem" type="VBoxContainer"]
+offset_right = 256.0
+offset_bottom = 141.0
+theme_override_constants/separation = 20
+script = ExtResource("1_if8ct")
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_65jgm")
+theme_override_font_sizes/font_size = 24
+text = "BLEH"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="UpgradeProgress" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+step = 25.0
+value = 75.0
+texture_under = ExtResource("2_xbgj0")
+texture_progress = ExtResource("3_3g15f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PriceTag" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_65jgm")
+theme_override_font_sizes/font_size = 16
+text = "$200"
+
+[node name="BuyButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("2_4kfpv")
+texture_pressed = ExtResource("5_h4guf")
+texture_hover = ExtResource("6_emixl")
+texture_disabled = ExtResource("7_tsy0i")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BuyButton" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://csc28knmmnmj7"]
+
+[ext_resource type="Texture2D" uid="uid://dgq4wcxie8wg1" path="res://Assets/Tileset/saltdesk.png" id="1_b46yy"]
+[ext_resource type="Script" path="res://Scripts/labmachines.gd" id="1_oc580"]
+[ext_resource type="Texture2D" uid="uid://ifokb3pnxygn" path="res://Assets/Tileset/saltdesk_hover.png" id="2_jvqoq"]
+[ext_resource type="Texture2D" uid="uid://b02brfrp7u6oc" path="res://Assets/Tileset/bookshelf.png" id="3_xpxy5"]
+[ext_resource type="Texture2D" uid="uid://dvxh5kiyq7mnl" path="res://Assets/Tileset/bookshelf_hover.png" id="4_fvnim"]
+[ext_resource type="Texture2D" uid="uid://cxndnw22c8cwo" path="res://Assets/Tileset/acidtable.png" id="5_gbftu"]
+[ext_resource type="Texture2D" uid="uid://bpeclko1bc87j" path="res://Assets/Tileset/acidtable_hover.png" id="6_70vya"]
+[ext_resource type="Texture2D" uid="uid://n23ihp6t8r7g" path="res://Assets/Tileset/burner.png" id="7_k2i7s"]
+[ext_resource type="Texture2D" uid="uid://of4qnfgukkdm" path="res://Assets/Tileset/burner_hover.png" id="8_0q5x1"]
+[ext_resource type="Texture2D" uid="uid://cfsg1tnyc63rd" path="res://Assets/Tileset/extractor.png" id="9_qh5wa"]
+[ext_resource type="Texture2D" uid="uid://cn11e5d1gg8sj" path="res://Assets/Tileset/extractor_hover.png" id="10_uau4m"]
+[ext_resource type="Texture2D" uid="uid://6dtp2v2fou3u" path="res://Assets/Tileset/reportdesk.png" id="11_oq00n"]
+[ext_resource type="Texture2D" uid="uid://c60m1liyo1n10" path="res://Assets/Tileset/reportdesk_hover.png" id="12_ax8aq"]
+[ext_resource type="Theme" uid="uid://dnmgdmaqqjo6t" path="res://Assets/Themes/instructions_text.tres" id="14_uqmea"]
+
+[node name="Laboratory" type="CanvasLayer"]
+script = ExtResource("1_oc580")
+
+[node name="SaltDesk" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -296.0
+offset_right = 296.0
+offset_bottom = -168.0
+grow_vertical = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("1_b46yy")
+texture_hover = ExtResource("2_jvqoq")
+
+[node name="Extractor" type="TextureButton" parent="."]
+offset_left = 424.0
+offset_top = 224.0
+offset_right = 552.0
+offset_bottom = 480.0
+texture_normal = ExtResource("9_qh5wa")
+texture_hover = ExtResource("10_uau4m")
+
+[node name="Bookshelf" type="TextureButton" parent="."]
+offset_left = 296.0
+offset_top = 224.0
+offset_right = 424.0
+offset_bottom = 480.0
+texture_normal = ExtResource("3_xpxy5")
+texture_hover = ExtResource("4_fvnim")
+
+[node name="Burner" type="TextureButton" parent="."]
+offset_left = 552.0
+offset_top = 224.0
+offset_right = 680.0
+offset_bottom = 480.0
+texture_normal = ExtResource("7_k2i7s")
+texture_hover = ExtResource("8_0q5x1")
+
+[node name="AcidTable" type="TextureButton" parent="."]
+offset_left = 680.0
+offset_top = 224.0
+offset_right = 936.0
+offset_bottom = 480.0
+texture_normal = ExtResource("5_gbftu")
+texture_hover = ExtResource("6_70vya")
+
+[node name="ReportDesk" type="TextureButton" parent="."]
+offset_left = 936.0
+offset_top = 224.0
+offset_right = 1064.0
+offset_bottom = 480.0
+texture_normal = ExtResource("11_oq00n")
+texture_hover = ExtResource("12_ax8aq")
+
+[node name="ThingLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -77.0
+offset_right = 108.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("14_uqmea")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.12549, 0.203922, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "SALT DESK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="SaltDesk" to="." method="_on_salt_desk_mouse_entered"]
+[connection signal="mouse_exited" from="SaltDesk" to="." method="_on_salt_desk_mouse_exited"]
+[connection signal="pressed" from="SaltDesk" to="." method="_on_salt_desk_pressed"]
+[connection signal="mouse_entered" from="Extractor" to="." method="_on_extractor_mouse_entered"]
+[connection signal="mouse_exited" from="Extractor" to="." method="_on_extractor_mouse_exited"]
+[connection signal="pressed" from="Extractor" to="." method="_on_extractor_pressed"]
+[connection signal="mouse_entered" from="Bookshelf" to="." method="_on_bookshelf_mouse_entered"]
+[connection signal="mouse_exited" from="Bookshelf" to="." method="_on_bookshelf_mouse_exited"]
+[connection signal="pressed" from="Bookshelf" to="." method="_on_bookshelf_pressed"]
+[connection signal="mouse_entered" from="Burner" to="." method="_on_burner_mouse_entered"]
+[connection signal="mouse_exited" from="Burner" to="." method="_on_burner_mouse_exited"]
+[connection signal="pressed" from="Burner" to="." method="_on_burner_pressed"]
+[connection signal="mouse_entered" from="AcidTable" to="." method="_on_acid_table_mouse_entered"]
+[connection signal="mouse_exited" from="AcidTable" to="." method="_on_acid_table_mouse_exited"]
+[connection signal="pressed" from="AcidTable" to="." method="_on_acid_table_pressed"]
+[connection signal="mouse_entered" from="ReportDesk" to="." method="_on_report_desk_mouse_entered"]
+[connection signal="mouse_exited" from="ReportDesk" to="." method="_on_report_desk_mouse_exited"]
+[connection signal="pressed" from="ReportDesk" to="." method="_on_report_desk_pressed"]

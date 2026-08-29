@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=4 uid="uid://xjurcs2jwwqu"]
+
+[ext_resource type="PackedScene" uid="uid://u4wyk64sigk7" path="res://Scenes/UI/main_ui.tscn" id="1_qgo7p"]
+[ext_resource type="Texture2D" uid="uid://c7hqdjblikuk" path="res://Assets/Tileset/wall.png" id="2_arewc"]
+[ext_resource type="AudioStream" uid="uid://d121jqpqsa76q" path="res://Assets/Music/pixelchemsoundtrack.mp3" id="3_3mlhy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnb1p"]
+texture = ExtResource("2_arewc")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ufddy"]
+tile_size = Vector2i(128, 128)
+sources/4 = SubResource("TileSetAtlasSource_wnb1p")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainUI" parent="." instance=ExtResource("1_qgo7p")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ufddy")
+format = 2
+
+[node name="Wall" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAABAAAAAAAAAAAAAEABAAAAAAAAAAAAAIABAAAAAAAAAABAAIABAAAAAAAAAABAAEABAAAAAAAAAABAAAABAAAAAAAAAACAAAABAAAAAAAAAACAAEABAAAAAAAAAACAAIABAAAAAAAAAADAAIABAAAAAAAAAADAAEABAAAAAAAAAADAAAABAAAAAAAAAAEAAAABAAAAAAAAAAEAAEABAAAAAAAAAAEAAIABAAAAAAAAAAFAAIABAAAAAAAAAAFAAEABAAAAAAAAAAFAAAABAAAAAAAAAAGAAAABAAAAAAAAAAGAAEABAAAAAAAAAAGAAIABAAAAAAAAAAHAAIABAAAAAAAAAAHAAEABAAAAAAAAAAHAAAABAAAAAAAAAAIAAAABAAAAAAAAAAIAAEABAAAAAAAAAAIAAIABAAAAAAAAAAAAAMABAAAAAEAAAABAAMABAAAAAEAAAACAAMABAAAAAEAAAADAAMABAAAAAEAAAAEAAMABAAAAAEAAAAFAAMABAAAAAEAAAAGAAMABAAAAAEAAAAHAAMABAAAAAEAAAAIAAMABAAAAAEAAAAAAAQABAAAAAIAAAAAAAUABAAAAAIAAAABAAUABAAAAAIAAAABAAQABAAAAAIAAAACAAQABAAAAAIAAAACAAUABAAAAAIAAAADAAQABAAAAAIAAAADAAUABAAAAAIAAAAEAAUABAAAAAIAAAAEAAQABAAAAAIAAAAFAAUABAAAAAIAAAAFAAQABAAAAAIAAAAGAAQABAAAAAIAAAAGAAUABAAAAAIAAAAHAAQABAAAAAIAAAAHAAUABAAAAAIAAAAIAAUABAAAAAIAAAAIAAQABAAAAAIAAAA=")
+tile_set = SubResource("TileSet_ufddy")
+
+[node name="Shadow" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 424.0
+offset_right = 1080.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.376471)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3mlhy")
+autoplay = true
+bus = &"Music"

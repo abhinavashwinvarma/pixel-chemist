@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctlf1hsm7fw85"]
+
+[ext_resource type="Texture2D" uid="uid://pdljr16qrwwg" path="res://Assets/Sprites/clicker.png" id="1_dfbm1"]
+[ext_resource type="Texture2D" uid="uid://d2nb2tuxxg7i2" path="res://Assets/Sprites/clicker_pressed.png" id="2_7q3jb"]
+[ext_resource type="Texture2D" uid="uid://boufgv1mftf42" path="res://Assets/Sprites/clicker_hover.png" id="2_xqag1"]
+[ext_resource type="Script" path="res://Scripts/clicker.gd" id="4_anuma"]
+[ext_resource type="AudioStream" uid="uid://b055rjysqlnny" path="res://Assets/Music/clicksound.mp3" id="4_uvbgi"]
+
+[node name="Clicker" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_dfbm1")
+texture_pressed = ExtResource("2_7q3jb")
+texture_hover = ExtResource("2_xqag1")
+script = ExtResource("4_anuma")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uvbgi")
+bus = &"SFX"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

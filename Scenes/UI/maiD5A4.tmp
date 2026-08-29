@@ -1,0 +1,542 @@
+[gd_scene load_steps=35 format=3 uid="uid://u4wyk64sigk7"]
+
+[ext_resource type="Texture2D" uid="uid://cee0kkxtgx8y1" path="res://Assets/Sprites/question.png" id="1_ra5v8"]
+[ext_resource type="Script" path="res://Scripts/main_ui.gd" id="1_rohgh"]
+[ext_resource type="Texture2D" uid="uid://dm8bck5o6w0ht" path="res://Assets/Sprites/home.png" id="1_yixue"]
+[ext_resource type="Texture2D" uid="uid://dl55pjljiohum" path="res://Assets/Sprites/home_pressed.png" id="2_fxklm"]
+[ext_resource type="Texture2D" uid="uid://bj741x8reve3v" path="res://Assets/Sprites/home_hover.png" id="3_7xk75"]
+[ext_resource type="Texture2D" uid="uid://cr27s7amvmg7i" path="res://Assets/Sprites/question_hover.png" id="3_ete6g"]
+[ext_resource type="Texture2D" uid="uid://dlg4wajmpg704" path="res://Assets/Sprites/question_pressed.png" id="5_d7jyv"]
+[ext_resource type="Texture2D" uid="uid://c2qh8aa62x26m" path="res://Assets/Sprites/textninepatch.png" id="7_i1jup"]
+[ext_resource type="Texture2D" uid="uid://dbte7aciiniy0" path="res://Assets/Sprites/exit.png" id="8_8vfba"]
+[ext_resource type="Texture2D" uid="uid://c08jvmhn5pujh" path="res://Assets/Sprites/labelbg.png" id="8_bwpej"]
+[ext_resource type="Texture2D" uid="uid://dmxgefde77umo" path="res://Assets/Sprites/exit_pressed.png" id="9_cx3va"]
+[ext_resource type="Texture2D" uid="uid://b6sfaln06smou" path="res://Assets/Sprites/exit_hover.png" id="10_3m4gf"]
+[ext_resource type="Theme" uid="uid://vdsag21duq02" path="res://Assets/Themes/instructions_title.tres" id="11_gamso"]
+[ext_resource type="Texture2D" uid="uid://cvum5dcdeqd5a" path="res://Assets/Sprites/arrowleft.png" id="12_rmfgv"]
+[ext_resource type="Texture2D" uid="uid://dsq8ckdp24do3" path="res://Assets/Sprites/arrowleft_pressed.png" id="13_psoel"]
+[ext_resource type="Texture2D" uid="uid://dp5uthocl6hmy" path="res://Assets/Sprites/arrowleft_hover.png" id="14_wncy1"]
+[ext_resource type="Texture2D" uid="uid://bprjorsywcj6c" path="res://Assets/Sprites/arrowright.png" id="16_yne1h"]
+[ext_resource type="Texture2D" uid="uid://bmljn2uycslrp" path="res://Assets/Sprites/arrowright_pressed.png" id="17_33d2a"]
+[ext_resource type="Texture2D" uid="uid://m028osto2tg6" path="res://Assets/Sprites/arrowright_hover.png" id="18_xs1n6"]
+[ext_resource type="Texture2D" uid="uid://bcijvcggnh0s" path="res://Assets/Sprites/tabopen.png" id="19_fy3b8"]
+[ext_resource type="Theme" uid="uid://dnmgdmaqqjo6t" path="res://Assets/Themes/instructions_text.tres" id="20_6lmhm"]
+[ext_resource type="Texture2D" uid="uid://wltyn2qropax" path="res://Assets/Sprites/tabopen_pressed.png" id="20_hvgsq"]
+[ext_resource type="Texture2D" uid="uid://letu8sqydxw1" path="res://Assets/Sprites/tabopen_hover.png" id="20_l3j0d"]
+[ext_resource type="PackedScene" uid="uid://bwlqthfnkccrw" path="res://Scenes/UI/upgrade_item.tscn" id="23_4fpgy"]
+[ext_resource type="PackedScene" uid="uid://csc28knmmnmj7" path="res://Scenes/World/laboratory.tscn" id="26_6jmp1"]
+[ext_resource type="Texture2D" uid="uid://d3gygywu8bqo6" path="res://Assets/SaltStuff/saltcolors.png" id="27_p72al"]
+[ext_resource type="PackedScene" uid="uid://ctlf1hsm7fw85" path="res://Scenes/UI/clicker.tscn" id="28_yqwnr"]
+[ext_resource type="Texture2D" uid="uid://c710tj3f2bd6y" path="res://Assets/Sprites/progressbarback2.png" id="29_1h3al"]
+[ext_resource type="Texture2D" uid="uid://cir2cyi56ruqr" path="res://Assets/Sprites/progressbarfront2.png" id="30_53r2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p44go"]
+atlas = ExtResource("27_p72al")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1w5u"]
+atlas = ExtResource("27_p72al")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3p8r"]
+atlas = ExtResource("27_p72al")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1j6h"]
+atlas = ExtResource("27_p72al")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u5cv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p44go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1w5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3p8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1j6h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainUI" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_rohgh")
+
+[node name="TopMenu" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.12
+anchor_bottom = 0.117
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 325.76
+offset_bottom = -3.816
+
+[node name="Home" type="TextureButton" parent="TopMenu"]
+layout_mode = 2
+texture_normal = ExtResource("1_yixue")
+texture_pressed = ExtResource("2_fxklm")
+texture_hover = ExtResource("3_7xk75")
+
+[node name="Instructions" type="TextureButton" parent="TopMenu"]
+layout_mode = 2
+texture_normal = ExtResource("1_ra5v8")
+texture_pressed = ExtResource("5_d7jyv")
+texture_hover = ExtResource("3_ete6g")
+
+[node name="Money" type="TextureRect" parent="TopMenu"]
+layout_mode = 2
+texture = ExtResource("8_bwpej")
+stretch_mode = 1
+
+[node name="MoneyLabel" type="Label" parent="TopMenu/Money"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -20.0
+offset_right = 142.0
+offset_bottom = 8.0
+grow_vertical = 2
+theme = ExtResource("11_gamso")
+theme_override_colors/font_shadow_color = Color(0.796078, 0.858824, 0.988235, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+text = "$200"
+
+[node name="InstructionsPopUp" type="NinePatchRect" parent="."]
+visible = false
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -245.0
+offset_right = 418.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_i1jup")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="ExitPopUp" type="TextureButton" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 80.0
+grow_horizontal = 0
+texture_normal = ExtResource("8_8vfba")
+texture_pressed = ExtResource("9_cx3va")
+texture_hover = ExtResource("10_3m4gf")
+
+[node name="LeftArrow" type="TextureButton" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -88.0
+offset_right = 72.0
+offset_bottom = -24.0
+grow_vertical = 0
+texture_normal = ExtResource("12_rmfgv")
+texture_pressed = ExtResource("13_psoel")
+texture_hover = ExtResource("14_wncy1")
+
+[node name="RightArrow" type="TextureButton" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -88.0
+offset_right = -8.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("16_yne1h")
+texture_pressed = ExtResource("17_33d2a")
+texture_hover = ExtResource("18_xs1n6")
+
+[node name="Title" type="Label" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 35.0
+offset_right = 271.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme = ExtResource("11_gamso")
+text = "YOU'RE A CHEMIST!"
+horizontal_alignment = 1
+
+[node name="PageNum" type="Label" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = -68.0
+offset_right = 272.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("11_gamso")
+theme_override_font_sizes/font_size = 24
+text = "1/3"
+horizontal_alignment = 1
+
+[node name="InstructionsText" type="Label" parent="InstructionsPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -377.0
+offset_top = -151.0
+offset_right = 377.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("20_6lmhm")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
+clip_text = true
+
+[node name="UpgradesPopUp" type="NinePatchRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = 331.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_i1jup")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="UpgradesOpenTab" type="TextureButton" parent="UpgradesPopUp"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -317.0
+offset_right = 8.0
+offset_bottom = -29.0
+grow_vertical = 0
+texture_normal = ExtResource("19_fy3b8")
+texture_pressed = ExtResource("20_hvgsq")
+texture_hover = ExtResource("20_l3j0d")
+
+[node name="Label" type="Label" parent="UpgradesPopUp/UpgradesOpenTab"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 220.0
+offset_right = 224.0
+offset_bottom = 241.0
+rotation = -1.57079
+theme = ExtResource("11_gamso")
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 24
+text = "UPGRADES"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesPopUp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme_override_constants/separation = 70
+
+[node name="BurnerUpgrade" parent="UpgradesPopUp/VBoxContainer" instance=ExtResource("23_4fpgy")]
+layout_mode = 2
+
+[node name="ExtractUpgrade" parent="UpgradesPopUp/VBoxContainer" instance=ExtResource("23_4fpgy")]
+layout_mode = 2
+
+[node name="ClickUpgrade" parent="UpgradesPopUp/VBoxContainer" instance=ExtResource("23_4fpgy")]
+layout_mode = 2
+
+[node name="FindingsPopUp" type="NinePatchRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = 331.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_i1jup")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="FindingsOpenTab" type="TextureButton" parent="FindingsPopUp"]
+layout_mode = 1
+offset_left = -56.0
+offset_top = 29.0
+offset_right = 8.0
+offset_bottom = 317.0
+texture_normal = ExtResource("19_fy3b8")
+texture_pressed = ExtResource("20_hvgsq")
+texture_hover = ExtResource("20_l3j0d")
+
+[node name="Label" type="Label" parent="FindingsPopUp/FindingsOpenTab"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 220.0
+offset_right = 224.0
+offset_bottom = 241.0
+rotation = -1.57079
+theme = ExtResource("11_gamso")
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = 0
+theme_override_font_sizes/font_size = 24
+text = "FINDINGS"
+
+[node name="FindingsTextLabel" type="Label" parent="FindingsPopUp"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 308.0
+offset_bottom = 611.0
+theme = ExtResource("20_6lmhm")
+autowrap_mode = 2
+
+[node name="Laboratory" parent="." instance=ExtResource("26_6jmp1")]
+
+[node name="SaltDeskPopUp" type="NinePatchRect" parent="."]
+visible = false
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -245.0
+offset_right = 418.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_i1jup")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="SaltDeskExit" type="TextureButton" parent="SaltDeskPopUp"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 80.0
+grow_horizontal = 0
+texture_normal = ExtResource("8_8vfba")
+texture_pressed = ExtResource("9_cx3va")
+texture_hover = ExtResource("10_3m4gf")
+
+[node name="Title" type="Label" parent="SaltDeskPopUp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 35.0
+offset_right = 271.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme = ExtResource("11_gamso")
+text = "YOU GOT A SALT!"
+horizontal_alignment = 1
+
+[node name="SaltText" type="Label" parent="SaltDeskPopUp"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_top = -252.0
+offset_right = 377.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("20_6lmhm")
+theme_override_font_sizes/font_size = 16
+text = "Your salt is colorless.
+It must be a salt of ____!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="SaltColor" type="AnimatedSprite2D" parent="SaltDeskPopUp"]
+position = Vector2(394, 213)
+scale = Vector2(2.75, 2.75)
+sprite_frames = SubResource("SpriteFrames_3u5cv")
+
+[node name="ExtractorPopUp" type="NinePatchRect" parent="."]
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -245.0
+offset_right = 418.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_i1jup")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 20
+
+[node name="ExtractorExit" type="TextureButton" parent="ExtractorPopUp"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 80.0
+grow_horizontal = 0
+texture_normal = ExtResource("8_8vfba")
+texture_pressed = ExtResource("9_cx3va")
+texture_hover = ExtResource("10_3m4gf")
+
+[node name="ExtractorTitle" type="Label" parent="ExtractorPopUp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 35.0
+offset_right = 271.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme = ExtResource("11_gamso")
+text = "THE EXTRACTOR"
+horizontal_alignment = 1
+
+[node name="ExtractorText" type="Label" parent="ExtractorPopUp"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -377.0
+offset_top = -102.0
+offset_right = 377.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("20_6lmhm")
+theme_override_font_sizes/font_size = 16
+text = "Click until the extract is complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Clicker" parent="ExtractorPopUp" instance=ExtResource("28_yqwnr")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -120.0
+offset_right = 64.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExtractorProgressBar" type="TextureProgressBar" parent="ExtractorPopUp"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 200.0
+texture_under = ExtResource("29_1h3al")
+texture_progress = ExtResource("30_53r2d")
+
+[connection signal="pressed" from="TopMenu/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="TopMenu/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="InstructionsPopUp/ExitPopUp" to="." method="_on_exit_pop_up_pressed"]
+[connection signal="pressed" from="InstructionsPopUp/LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="InstructionsPopUp/RightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="UpgradesPopUp/UpgradesOpenTab" to="." method="_on_upgrades_tab_pressed"]
+[connection signal="pressed" from="FindingsPopUp/FindingsOpenTab" to="." method="_on_findings_tab_pressed"]
+[connection signal="extractor_opened" from="Laboratory" to="." method="_on_laboratory_extractor_opened"]
+[connection signal="salt_opened" from="Laboratory" to="." method="_on_laboratory_salt_opened"]
+[connection signal="pressed" from="SaltDeskPopUp/SaltDeskExit" to="." method="_on_salt_desk_exit_pressed"]
+[connection signal="pressed" from="ExtractorPopUp/ExtractorExit" to="." method="_on_extractor_exit_pressed"]
+[connection signal="pressed" from="ExtractorPopUp/Clicker" to="." method="_on_extractor_clicker_pressed"]
