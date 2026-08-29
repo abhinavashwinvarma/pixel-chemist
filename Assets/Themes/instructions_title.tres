@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vdsag21duq02"]
+
+[ext_resource type="FontFile" uid="uid://bp58oxk14io7w" path="res://Assets/Fonts/dogica/TTF/dogicabold.ttf" id="1_ddong"]
+
+[resource]
+Label/colors/font_color = Color(0.133333, 0.12549, 0.203922, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_ddong")
